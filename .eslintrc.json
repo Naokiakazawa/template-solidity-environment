@@ -14,7 +14,7 @@
     "es6": true
   },
   "rules": {
-    "prettier/prettier": [2, { "singleQuote": true, "semi": false }],
+    "prettier/prettier": [2, { "singleQuote": false, "semi": true }],
     "@typescript-eslint/explicit-function-return-type": 0,
     "@typescript-eslint/explicit-member-accessibility": 0,
     "@typescript-eslint/indent": 0,
