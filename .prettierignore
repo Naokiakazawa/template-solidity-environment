@@ -1,6 +1,10 @@
 node_modules
-.next
 yarn.lock
 package-lock.json
-public
-storybook-static
+out
+artifacts
+foundry-cache
+hardhat-cache
+lib/
+typechain-types
+README.md
