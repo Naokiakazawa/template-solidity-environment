@@ -6,6 +6,8 @@
   "scripts": {
     "test": "GAS_REPORT=true npx hardhat test",
     "lint": "eslint . --ext .ts,.js,.tsx,.jsx",
+    "hhnode": "hardhat node",
+    "deploy": "hardhat run scripts/deploy.ts",
     "lint:fix": "eslint --fix . --ext .ts,.js,.tsx,.jsx",
     "format": "prettier --write ."
   },

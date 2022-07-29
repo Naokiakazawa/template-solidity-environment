@@ -15,6 +15,6 @@ Try running some of the following tasks:
 npx hardhat help
 npx hardhat test
 GAS_REPORT=true npx hardhat test
-npx hardhat node
+npx 
 npx hardhat run scripts/deploy.ts
 ```
