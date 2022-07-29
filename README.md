@@ -1,20 +1,8 @@
-# Sample Hardhat Project
-
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+# Template for Solidity dev environment
 
 For setup:
 
 ```shell
 yarn
 forge install
-```
-
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-GAS_REPORT=true npx hardhat test
-npx 
-npx hardhat run scripts/deploy.ts
 ```
