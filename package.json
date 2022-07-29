@@ -5,9 +5,10 @@
   "license": "MIT",
   "scripts": {
     "test": "GAS_REPORT=true npx hardhat test",
-    "lint": "eslint . --ext .ts,.js,.tsx,.jsx",
     "hhnode": "hardhat node",
     "deploy": "hardhat run scripts/deploy.ts",
+    "lint:es": "eslint . --ext .ts,.js,.tsx,.jsx",
+    "lint:sol": "solhint --config .solhint.json --ignore-path .solhintignore contracts/**/*.sol",
     "lint:fix": "eslint --fix . --ext .ts,.js,.tsx,.jsx",
     "format": "prettier --write ."
   },
@@ -18,7 +19,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "yarn lint",
+      "yarn lint:es",
       "yarn format"
     ]
   },
@@ -47,6 +48,7 @@
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
+    "solhint": "^3.3.7",
     "solidity-coverage": "^0.7.21",
     "ts-node": ">=8.0.0",
     "typechain": "^8.1.0",
