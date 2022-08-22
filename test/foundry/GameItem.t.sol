@@ -3,13 +3,13 @@ pragma solidity ^0.8.9;
 
 import "forge-std/Test.sol";
 
-import "../../contracts/Lock.sol";
+import "../../contracts/GameItem.sol";
 
 contract LockTest is Test {
-  Lock l;
+  GameItem g;
 
   function setUp() public {
-    l = new Lock(1659279600 + 365 * 24 * 60 * 60);
+    g = new GameItem();
   }
 
   function testExample() public {
