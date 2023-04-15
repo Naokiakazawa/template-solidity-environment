@@ -7,6 +7,14 @@ yarn
 forge install
 ```
 
+create and fix `.env`
+
+```
+INFURA_KEY=
+MNEMONIC=
+PRIVATE_KEY=
+```
+
 ## Test
 
 ```shell
