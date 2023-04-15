@@ -13,6 +13,7 @@ create and fix `.env`
 INFURA_KEY=
 MNEMONIC=
 PRIVATE_KEY=
+ETHERSCAN_KEY=
 ```
 
 ## Test
