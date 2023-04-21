@@ -1,5 +1,5 @@
 [profile.default]
-solc = '0.8.9'
+solc = '0.8.19'
 via_ir = true
 src = 'contracts'
 out = 'out'

@@ -8,7 +8,7 @@ const mnemonic: string =
     : "test test test test test test test test test test test junk";
 
 const config: HardhatUserConfig = {
-  solidity: "0.8.9",
+  solidity: "0.8.19",
   defaultNetwork: "hardhat",
   networks: {
     hardhat: {
