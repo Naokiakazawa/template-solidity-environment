@@ -7,7 +7,7 @@ yarn
 forge install
 ```
 
-create and fix `.env`
+Create `.env` and set environment variables
 
 ```
 INFURA_KEY=
