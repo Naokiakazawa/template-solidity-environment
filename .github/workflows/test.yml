@@ -1,0 +1,85 @@
+name: test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up environment
+        uses: ./.github/actions/setup
+      - name: ESLint
+        run: yarn lint:es
+      - name: Solhint
+        run: yarn lint:sol
+
+  tests:
+    runs-on: ubuntu-latest
+    env:
+      FORCE_COLOR: 1
+      NODE_OPTIONS: --max_old_space_size=4096
+      GAS: true
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up environment
+        uses: ./.github/actions/setup
+      - name: Run tests and generate gas report
+        run: yarn test
+      - name: Check linearisation of the inheritance graph
+        run: yarn test:inheritance
+
+  tests-foundry:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - name: Set up environment
+        uses: ./.github/actions/setup
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: nightly
+      - name: Run tests
+        run: forge test -vvv
+
+  slither:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up environment
+        uses: ./.github/actions/setup
+      - run: rm foundry.toml
+      - uses: crytic/slither-action@v0.3.0
+        id: slither
+        with:
+          node-version: 16
+          fail-on: none
+          slither-args: --checklist --markdown-root ${{ github.server_url }}/${{ github.repository }}/blob/${{ github.sha }}/
+      - name: Create/update checklist as PR comment
+        uses: actions/github-script@v6
+        if: github.event_name == 'pull_request'
+        with:
+          script: |
+            const script = require('.github/scripts/comment')
+            const header = '# Slither report'
+            const body = `${{ steps.slither.outputs.stdout }}`
+            await script({ github, context, header, body })
+
+  codespell:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run CodeSpell
+        uses: codespell-project/actions-codespell@v2.0
+        with:
+          check_hidden: true
+          check_filenames: true
+          skip: yarn.lock,*.pdf,*.config.json,*.txt
