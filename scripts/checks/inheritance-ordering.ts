@@ -63,7 +63,8 @@ for (const artifact of artifacts) {
         linearized.filter((chain: number[]) => {
           const comp: ">" | "<" =
             chain.indexOf(parseInt(x)) < chain.indexOf(parseInt(y)) ? ">" : "<";
-          console.log(`- ${names[x]} ${comp} ${names[y]} in ${names[chain.find(Boolean)]}`);
+          console.log(`- ${names[x]} ${comp} ${names[y]}`);
+          //console.log(`- ${names[x]} ${comp} ${names[y]} in ${names[chain.find(Boolean)]}`);
         });
         process.exitCode = 1;
       }),
