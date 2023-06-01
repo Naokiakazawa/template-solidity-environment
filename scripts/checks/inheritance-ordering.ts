@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import { Dirent, readdirSync } from "fs";
 import path from "path";
 import graphlib from "graphlib";

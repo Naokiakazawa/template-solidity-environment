@@ -5,6 +5,7 @@
 ```shell
 yarn
 forge install
+git checkout -b develop
 ```
 
 Create `.env` and set environment variables
