@@ -70,7 +70,7 @@ jobs:
           script: |
             const script = require('.github/scripts/comment');
             const header = '# Slither report';
-            const body = `${{ steps.slither.outputs.stdout }}`;
+            const body = process.env.REPORT;
             await script({ github, context, header, body });
 
   codespell:
