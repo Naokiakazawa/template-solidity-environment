@@ -68,10 +68,10 @@ jobs:
         if: github.event_name == 'pull_request'
         with:
           script: |
-            const script = require('.github/scripts/comment')
-            const header = '# Slither report'
-            const body = `${{ steps.slither.outputs.stdout }}`
-            await script({ github, context, header, body })
+            const script = require('.github/scripts/comment');
+            const header = '# Slither report';
+            const body = `${{ steps.slither.outputs.stdout }}`;
+            await script({ github, context, header, body });
 
   codespell:
     runs-on: ubuntu-latest
