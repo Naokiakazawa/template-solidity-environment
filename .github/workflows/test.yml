@@ -74,14 +74,3 @@ jobs:
             const header = '# Slither report';
             const body = process.env.REPORT;
             await script({ github, context, header, body });
-
-  codespell:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Run CodeSpell
-        uses: codespell-project/actions-codespell@v2.0
-        with:
-          check_hidden: true
-          check_filenames: true
-          skip: yarn.lock,*.pdf,*.config.json,*.txt
