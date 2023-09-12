@@ -41,6 +41,19 @@ const config: HardhatUserConfig = {
         mnemonic: mnemonic,
       },
     },
+    arbitrumGoerli: {
+      url: "https://goerli-rollup.arbitrum.io/rpc",
+      chainId: 421613,
+      accounts: {
+        mnemonic: mnemonic,
+      },
+    },
+    arbitrumOne: {
+      url: "https://arb1.arbitrum.io/rpc",
+      accounts: {
+        mnemonic: mnemonic,
+      },
+    },
   },
   paths: { cache: "hardhat-cache" },
   gasReporter: {
